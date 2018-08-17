@@ -1,18 +1,1 @@
-{
-    "pets": [{
-        "name": "Joy",
-        "type": "cat",
-        "id": 133987,
-        "created": 1534088802796
-    }, {
-        "name": "Bob",
-        "type": "dog",
-        "id": 189796,
-        "created": 1533822727365
-    }, {
-        "name": "Ralph",
-        "type": "dog",
-        "id": 129001,
-        "created": 1534088802796
-    }]
-}
+{"pets":[{"name":"Joy","type":"cat","id":133987,"created":1534088802796},{"name":"Bob","type":"dog","id":189796,"created":1533822727365},{"name":"Ralph","type":"dog","id":129001,"created":1534088802796},{"name":"Lula","type":"cat","id":197034,"created":1534490645949},{"name":"Lula","type":"dog","id":163913,"created":1534490649662},{"name":"Lula","type":"dog","id":216637,"created":1534490650645},{"name":"Lula","type":"dog","id":251971,"created":1534490651288},{"name":"Lula","type":"dog","id":251163,"created":1534490651299},{"name":"Lula","type":"dog","id":253248,"created":1534490651332}]}

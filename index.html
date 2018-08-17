@@ -17,17 +17,18 @@
     <main>
         <aside>
             <form id="searchForm">
-                <input type="text" placeholder="Search by name" name="nameInput" />
-                <button type="submit" class="btn">Search</button>
+                <input type="text" placeholder="Search by name" name="nameInput"  id="inputSearch"/>
+                <button type="submit" class="btn" id="searchButton">Search</button>
             </form>
-            <form id="createForm">
-                <input type="text" placeholder="Pet name" required name="nameInput" />
-                <select name="typeInput">
+            <form id="addForm">
+                <input type="text" placeholder="Pet name"  id="petName"  required name="nameInput" />
+                <select name="typeInput" required id="catVsDog">
                     <option value="cat">Cat</option>
                     <option value="dog">Dog</option>
                 </select>
-                <button type="submit" class="btn">Create Pet</button>
+                <button type="submit" class="btn" id="createPet">Create Pet</button>
             </form>
+
             <button type="button" class="btn" id="loginBtn">Login</button>
             <button type="button" class="btn" id="logoutBtn">Logout</button>
         </aside>
@@ -42,6 +43,7 @@
     </footer>
     <script src="public/javascript/utils.js"></script>
     <script src="public/javascript/app.js"></script>
+    <script src="public/javascript/calls.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.26.11/dist/sweetalert2.all.min.js"></script>
 </body>
 
