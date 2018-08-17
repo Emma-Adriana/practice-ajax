@@ -82,7 +82,7 @@ function deleteFunction(id){
 //SEARCH
 let searchBut = document.getElementById("searchButton");
 
-searchBut.addEventListener("click" ,function(e) {
+searchBut.addEventListener("submit" ,function(e) {
     e.preventDefault();
     let nameToFind = document.getElementById("inputSearch").value;
 

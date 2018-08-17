@@ -2,9 +2,11 @@
  *
  * @param {{name: string, type: string, created: number}} param0
  */
-function createPetCard({ name, type, created }, isEditable = false) {
+function createPetCard({ name, type, created , id}, isEditable = false) {
     let card = document.createElement('div');
     card.classList.add('pet', `pet--${type}`);
+    card.id = id ;
+    
 
     let img = document.createElement('img');
     img.width = 64;
@@ -14,6 +16,7 @@ function createPetCard({ name, type, created }, isEditable = false) {
     let nameEl = document.createElement('h1');
     nameEl.contentEditable = isEditable;
     nameEl.innerText = name;
+    
 
     let ageEl = document.createElement('p');
     let days = document.createElement('span');
@@ -28,11 +31,15 @@ function createPetCard({ name, type, created }, isEditable = false) {
     editBtn.classList.add('btn', 'edit-btn');
     editBtn.setAttribute('data-type', 'edit');
     editBtn.innerText = 'Edit';
+    editBtn.setAttribute('data-id', `${id}`);
+    
 
-    let deleteBtn = document.createElement('button');
-    deleteBtn.classList.add('btn', 'delete-btn');
-    deleteBtn.setAttribute('data-type', 'delete');
-    deleteBtn.innerText = 'Delete';
+    let deleteBtn = document.createElement("button");
+    deleteBtn.classList.add("btn", "delete-btn");
+    deleteBtn.setAttribute("data-type", "delete");
+    deleteBtn.innerText = "Delete";
+    deleteBtn.setAttribute('data-id', `${id}`);
+
 
     card.appendChild(img);
     card.appendChild(nameEl);
@@ -40,6 +47,10 @@ function createPetCard({ name, type, created }, isEditable = false) {
     if (!isEditable) {
         card.appendChild(editBtn);
         card.appendChild(deleteBtn);
+    }
+    else{
+        nameEl.setAttribute('data-type', "name");
+        ageEl.setAttribute('data-age', "age");
     }
 
     return card;
