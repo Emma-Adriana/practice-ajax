@@ -1,7 +1,10 @@
 const PORT = 8080;
 const enableAuth = process.argv[2] === '--auth' ? true : false;
 const enableCors = process.argv[2] === '--cors' ? true : false;
+const enableDelay = process.argv.includes("--delay=true");
 
+
+console.log(process.argv);
 let token = null;
 
 let path = require('path');
@@ -32,13 +35,19 @@ app.use(function corsMiddleware(req, res, next) {
     next();
 });
 app.use(function authMiddleware(req, res, next) {
-    if (!isAuth(req, res)) {
+    if (req.method !== "GET" && !isAuth(req, res)) {
         res.status(401).send();
         res.end();
     } else {
         next();
     }
 });
+
+if (enableDelay) {
+    app.use(function delayMiddleware(req, res, next) {
+        setTimeout(next, 2000);
+    });
+}
 
 /** APIs */
 app.get('/', (req, res) => {
