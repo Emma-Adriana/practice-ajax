@@ -35,7 +35,7 @@ app.use(function corsMiddleware(req, res, next) {
     next();
 });
 app.use(function authMiddleware(req, res, next) {
-    if (req.method !== "GET" && !isAuth(req, res)) {
+    if (req.method !== "GET"  && req.url !== "/login" && !isAuth(req, res)) {
         res.status(401).send();
         res.end();
     } else {
