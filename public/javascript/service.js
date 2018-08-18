@@ -1,11 +1,11 @@
 class PetsService {
-    static getPets(successCb, errorCb) {
+    static getPets( successCb, errorCb) {
+
         let xhr = new XMLHttpRequest();
 
         xhr.open('GET', '/pets/');
 
-        xhr.setRequestHeader('content-type', 'application/json');
-        
+        xhr.setRequestHeader('content-type', 'application/json');        
 
         xhr.addEventListener('load', e => {
             switch(xhr.status){
@@ -58,9 +58,11 @@ class PetsService {
     static addPet(myNewPet, successCb, errorCb) {
         let xhrPost = new XMLHttpRequest();
 
-        xhrPost.open('POST', '/pets/');
+        xhrPost.open('POST', '/pets/');        
 
         xhrPost.setRequestHeader('content-type', 'application/json');
+
+        xhrPost.setRequestHeader('token', localStorage.getItem("token"));
 
         xhrPost.addEventListener('load', e => {
             switch(xhrPost.status){
@@ -85,6 +87,8 @@ class PetsService {
         xhrDelete.open('DELETE', `/pets/${id}`);
 
         xhrDelete.setRequestHeader('content-type', 'application/json');
+
+        xhrDelete.setRequestHeader('token', localStorage.getItem("token"));
 
         xhrDelete.addEventListener('load', e => {
             switch(xhrDelete.status){
@@ -134,6 +138,8 @@ class PetsService {
 
         xhrUpdate.setRequestHeader('content-type', 'application/json');
 
+        xhrUpdate.setRequestHeader('token', localStorage.getItem("token"));        
+
         xhrUpdate.addEventListener('load', e => {
             switch(xhrUpdate.status){
                 case 200:
@@ -161,7 +167,8 @@ class PetsService {
         xhrGetOne.addEventListener('load', e => {
             switch(xhrGetOne.status){
                 case 200:
-                    successCb(JSON.parse(xhrGetOne.response));
+
+                successCb(JSON.parse(xhrGetOne.response));
                     break;
                 case 401:
                     errorCb(401);
@@ -174,5 +181,6 @@ class PetsService {
         xhrGetOne.addEventListener('error', e => {});
         xhrGetOne.send();
     }
+
 }
 

@@ -143,6 +143,28 @@
         );
     });
 
+    let loginButton = document.getElementById("loginBtn");
+
+    loginButton.addEventListener("click" , function(e) {
+        AuthService.login(function(){
+            alert("Login succesfull!");
+        },
+        function(err) {
+            alert('Nu poti adauga un animalut daca nu esti autentificat!');
+        })
+    });
+
+    let logoutButton = document.getElementById("logoutBtn");
+
+    logoutButton.addEventListener("click" , function(e) {
+        AuthService.logout(function(){
+            alert("Logout succesfull!");
+        },
+        function(err) {
+            alert('Ati ramas captiv aici!');
+        })
+    });
+
     // let searchForm = document.getElementById('searchForm');
 
     // searchForm.addEventListener('submit', function(e) {
