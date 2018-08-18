@@ -6,7 +6,7 @@ class PetsService {
 
     static addPet(myNewPet, successCb, errorCb) {
 
-        HTTP.request('POST' , '/pets/' , {'content-type':'application/json' , 'token' : localStorage.getItem("token")} ,  successCb, errorCb ,myNewPet);
+        HTTP.request('POST' , '/pets' , {'content-type':'application/json' , 'token' : localStorage.getItem("token")} ,  successCb, errorCb ,myNewPet);
     }
 
     static deletePet(id, successCb, errorCb) {
